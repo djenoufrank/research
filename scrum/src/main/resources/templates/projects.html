@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" th:href="@{style.css}"/> 
+     <title>Document</title>
+</head>
+<body>
+
+    <main layout:fragment="contenu">   
+
+        <h2>Liste des projets</h2>
+        <div th:unless="${#lists.isEmpty(projects)}">
+            <table border="1" style ="background-color: cadetblue;">
+                <tr>
+                    <th>nom</th>
+                    <th>nbr sprint</th>
+                    <th>mentions</th>
+                </tr>
+                <tr th:each="project : ${projects}">
+                    <td><a th:href="@{/projectDetail(project=${project.name})}"> 
+                        <span th:text="${project.name}"></span></a></td>
+                    <td><span th:text="${project.sprints.size()}"></span></td>
+                    <td  th:if="${project.active}">en cours</td>
+                    <td  th:unless="${project.active}">terminé</td>
+                </tr>
+            </table>
+        </div>
+        <div th:if="${#lists.isEmpty(projects)}">
+            Aucun projet de défini pour l'instant
+        </div>
+    </main>
+</body>
+
+</html>

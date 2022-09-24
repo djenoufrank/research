@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{style.css}" />
+    <title>Document</title>
+</head>
+
+<body>
+    <header th:replace="~{welcome.html::header}"></header>
+
+    <main>
+        <h2>Liste des cours de l'etudiant  <span th:text="${studen.name}" ></span></h2>
+        <div th:unless="${#lists.isEmpty(coursess)}">
+            <table border="1" style ="background-color: cadetblue;">
+                <tr>
+                    <th>Sigle</th>
+                    <th>Titre</th>
+                    <th>ECTS</th>
+                </tr>
+                <tr th:each="course : ${coursess}">
+                    <td ><span th:text="${course.course_id}" ></span></td>
+                    <td><span th:text="${#strings.toUpperCase(course.title)}"></span></td>
+                    <td><span th:text="${course.credits}"></span></td>
+                </tr>
+            </table>
+        </div>
+        <div th:if="${#lists.isEmpty(coursess)}">
+            Aucun cour de défini pour l'instant a cet etudiant
+        </div>
+
+        <div>
+<h4>Ajouter un cour à l'étudiant <span th:text="${studen.name}" ></span></h4>
+            <form method="post">
+               <input type="hidden" th:name="nameOfThisStud" th:value="${studen.getStudent_id()}" />
+                <select id="monAjout" name="monAjout">
+                    <options th:each="course : ${allCourses}">
+                        <option  th:name="course_id" th:value="${course.course_id}">
+                            <span  th:text="${course.course_id}"></span>
+                        </option>
+                    </options>
+                    
+                </select>
+                 <button type="submit">Add course</button>
+                </form>
+
+
+        </div>
+   
+
+    </main>
+</body>
+
+</html>

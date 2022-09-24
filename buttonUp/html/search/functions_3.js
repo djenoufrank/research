@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['game_106',['Game',['../classstd_1_1_game.html#ad34c3c64ed6651150ce827e495333002',1,'std::Game::Game()'],['../classstd_1_1_game.html#a9a5ad54f297729a933f6b1edf40e4d8d',1,'std::Game::Game(Game &amp;game)']]],
+  ['gameisover_107',['gameIsOver',['../classstd_1_1_game.html#af247063d9ceb6ba0a4fd501bc403ba47',1,'std::Game']]],
+  ['getblackscore_108',['getBlackScore',['../classstd_1_1_game.html#a8f217507feaea847c81819b53c957f70',1,'std::Game']]],
+  ['getboard_109',['getBoard',['../classstd_1_1_game.html#ab6930d34e089211decb1befe22f4ac42',1,'std::Game']]],
+  ['getbuttons_110',['getButtons',['../classstd_1_1_square.html#a914886604b8f5340da9bccf5aa57ddd0',1,'std::Square']]],
+  ['getcanswapplayers_111',['getCanSwapPlayers',['../classstd_1_1_game.html#acfd303a7a001b0b62f3ec87d81ede20d',1,'std::Game']]],
+  ['getcolor_112',['getColor',['../classstd_1_1_button.html#adb5bec5d169683ee455a88303c01b390',1,'std::Button::getColor()'],['../classstd_1_1_player.html#af3643ace70cd903ef9507c25a724b56e',1,'std::Player::getColor()']]],
+  ['getcolumn_113',['getColumn',['../classstd_1_1_position.html#a06dfb0ba7332e3e1c423c878c62e2189',1,'std::Position']]],
+  ['getcurrent_114',['getCurrent',['../classstd_1_1_game.html#ae3c2f4d8e08d70b92849e9d6961e5590',1,'std::Game']]],
+  ['getindicelastposition_115',['getIndiceLastPosition',['../classstd_1_1_game.html#a464729c05fde54323791cef746cf545b',1,'std::Game']]],
+  ['getline_116',['getLine',['../classstd_1_1_position.html#a3b236130b09e35a5ea6a6cb4668ba3cc',1,'std::Position']]],
+  ['getmovepositions_117',['getMovePositions',['../classstd_1_1_game.html#a8c237127a2175b3f40f94b95ab8b382c',1,'std::Game']]],
+  ['getname_118',['getName',['../classstd_1_1_player.html#a88c0a6bebe5ac591d8c50e46462d8034',1,'std::Player']]],
+  ['getopponent_119',['getOpponent',['../classstd_1_1_game.html#a3d0ad262a90a7b81543f6d124f9dece3',1,'std::Game']]],
+  ['getpositions_120',['getPositions',['../classstd_1_1_game.html#a55b2fc9fe82035b65be2fcdff83fc801',1,'std::Game']]],
+  ['getredscore_121',['getRedScore',['../classstd_1_1_game.html#a847e4db171d0430e4b569ce7ab85191e',1,'std::Game']]],
+  ['getselected_122',['getSelected',['../classstd_1_1_game.html#a91d8a950ca0289a63cef6d03bd71f0c7',1,'std::Game']]],
+  ['getsquare_123',['getSquare',['../classstd_1_1_board.html#a8dae12b959f2ddd9173363b135c7707f',1,'std::Board']]],
+  ['getsquares_124',['getSquares',['../classstd_1_1_board.html#a13865f93cd42da5110024ac20d6cc39d',1,'std::Board']]],
+  ['gettopcolor_125',['getTopColor',['../classstd_1_1_board.html#a36c16db1b3eef6918397779975cbcb17',1,'std::Board::getTopColor()'],['../classstd_1_1_square.html#a2bfd791d1cef67deccc74625542e2eb5',1,'std::Square::getTopColor()']]],
+  ['getwhitecolor_126',['getWhiteColor',['../classstd_1_1_square.html#aa2aa7d39e1f81765f9ec9529bd64cd58',1,'std::Square']]],
+  ['getwinner_127',['getWinner',['../classstd_1_1_game.html#a873e6d5f12e0ffa72512039c0686c4a9',1,'std::Game']]],
+  ['getwinnergui_128',['getWinnerGui',['../classstd_1_1_game.html#a6a30e6d09a4076dfdf5bdb45ef8ea142',1,'std::Game']]]
+];

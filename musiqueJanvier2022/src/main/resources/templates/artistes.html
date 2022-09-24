@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+    <head th:replace="~{fragmentHead.html::myhead}"></head>
+    <title>liste artiste</title>
+<body>
+    <header th:replace="~{fragment.html::myheader}"></header>
+
+    <div th:unless="${#lists.isEmpty(artists)}">
+        <table border="1" style ="background-color: cadetblue;">
+            <tr style="background-color: rgb(63, 63, 58);">
+                <th>nom d'artiste</th>
+                <th>nbr de chansons</th>
+            </tr>
+            <tr th:each="artist : ${artists}">
+                <td><a th:href="@{/artistDetail(artist=${artist.login})}"> <span th:text="${artist.name}"></span></a></td>
+                <td><span th:text="${artist.tracks.size()}"></span></td>
+            </tr>
+        </table>
+    </div>
+    <div th:if="${#lists.isEmpty(artists)}">
+        Aucun Artiste de défini pour l'instant
+    </div>
+</body>
+</html>

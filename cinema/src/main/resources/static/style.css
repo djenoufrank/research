@@ -1,0 +1,22 @@
+.errorMsg{
+  color: red;
+}
+.div {
+    display: grid;
+    background-color: chocolate;
+    text-decoration: double;
+    
+}
+*{
+    margin: 0.1em;
+    padding: 0.1em;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: 'Josefin Sans', sans-serif;
+  }
+  #portfoliolist{
+    display: flex;
+    flex-flow: row wrap;
+  }
+ .login{
+ }

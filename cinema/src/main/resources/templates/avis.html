@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head th:replace="~{fragmentHead.html::myhead}"></head>
+    <title>Avis</title>
+<body>
+    <header th:replace="~{fragment.html::myheader}"></header>
+    <main>
+        <h2>Liste des avis</h2></br>
+        <div th:unless="${#lists.isEmpty(avis)}">
+            <div id="portfoliolist" >
+                <div class="portfolio usado escambolivre" data-cat="usado escambolivre" th:each="avi : ${avis}" >
+                    <div class="img"> 
+                    <!-- <a rel="group" title=""  th:href="'/produto?id='+${produto.id}"> -->
+                        <img th:src="@{/image/__${avi.review_id}__.jpg}" alt="pas d'image"  class="img-responsive caixa-img-produto" />
+                    <!-- </a> -->
+                        <div class="label">
+                            <div class="label-text">
+                                <span class="text-category" th:text="${avi.rate}"></span>/5
+                            </div>
+                            <div class="label-bg"></div>
+                            <div class="label-text2">
+                                <span class="text-category" th:text="${avi.movie.getTitle()}"></span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div th:if="${#lists.isEmpty(avis)}">
+            Aucun avis de défini pour l'instant
+        </div>
+
+        </br><div id="divButton" sec:authorize="isAuthenticated()">
+            <form method="get" th:action="@{/private/ajouterAvis}">
+                
+                <button type="submit">ajouter un avis</button>
+            </form>
+        </div> 
+    </main>
+</body>
+</html>

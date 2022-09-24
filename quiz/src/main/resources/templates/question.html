@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+<body>
+
+    <main layout:fragment="contenu">   
+
+        <h2>Liste des questions</h2>
+        <div th:unless="${#lists.isEmpty(questions)}">
+            <table border="1">
+                <tr>
+                    <th>questions</th>
+                </tr>
+                <tr th:each="q : ${questions}">
+                    <td ><a  th:href="@{/detailQuestion(q=${q.number})}"><span th:text="${q.text}" ></span></a></td>
+                </tr>
+            </table>
+        </div>
+        <div th:if="${#lists.isEmpty(questions)}">
+            Aucune question de défini pour l'instant
+        </div>
+    </main>
+</body>
+
+</html>

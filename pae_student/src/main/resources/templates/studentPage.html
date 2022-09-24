@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{style.css}" />
+    <title>Document</title>
+</head>
+
+<body>
+    <header th:replace="~{welcome.html::header}"></header>
+
+    <main>
+
+
+        <h2>Liste des etudiants</h2>
+        <div th:unless="${#lists.isEmpty(students)}">
+            <table border="1" style="background-color: cadetblue;">
+                <tr>
+                    <th>Matricule</th>
+                    <th>Nom</th>
+                    <th>Genre</th>
+                    <th>Section</th>
+                </tr>
+                <tr th:each="student : ${students}">
+                    <!-- {/theStudentCourses/{student_id}/courses(student_id=${student.student_id})} -->
+                    <td><a  th:href="@{/private/theStudentCourses/{student_id}/courses(student_id=${student.student_id})}">
+                        <span th:text="${student.student_id}"></span></a></td>
+                          <td><span th:text="${student.name}"></span></td>
+                    <td>
+                        <span th:if="${student.gender == 'FEMALE'}">F</span>
+                        <span th:unless="${student.gender == 'FEMALE'}">M</span>
+                    </td>
+                    <!-- <td><span th:text="${student.gender}"></span></td> -->
+                    <span th:switch="${student.section.name()}">
+                        <td th:case="GESTION">Gestion</td>
+                        <td th:case="INDUSTRIELLE">Industrielle</td>
+                        <td th:case="RESEAU">Réseau</td>
+                    </span>
+                </tr>
+            </table>
+        </div>
+
+        <div th:if="${#lists.isEmpty(students)}">
+            Aucun étudiant de défini pour l'instant
+        </div>
+        
+
+        <div  sec:authorize="${hasAuthority('SECR')}">
+            <form th:action="@{/private/students}" th:object="${newStudent}" method="post">
+                <p><h4>Ajouter un etudiant</h4></p>
+                <label>Nom</label>
+                <input type="text" th:field="*{name}" /><br>
+                <label>Genre</label>
+                <input type="checkbox" th:field="*{gender}" th:value="MALE" />Male
+                <input type="checkbox" th:field="*{gender}" th:value="FEMALE" />Female<br>
+                <label>Section</label>
+                <input type="radio" th:field="*{section}" th:value="GESTION" />gestion
+                <input type="radio" th:field="*{section}" th:value="INDUSTRIELLE" />industrielle
+                <input type="radio" th:field="*{section}" th:value="RESEAU" />reseau<br>
+                <button type="submit">Ajouter</button>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

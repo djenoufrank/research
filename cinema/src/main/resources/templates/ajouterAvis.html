@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<head th:replace="~{fragmentHead.html::myhead}"></head>
+<title>Avis</title>
+
+<body>
+    <header th:replace="~{fragment.html::myheader}"></header>
+    <main>
+        <div>
+            <form th:action="@{/private/avis}" th:object="${review}" method="post">
+                <!-- <input type="hidden" th:value="${sec:authentication='name'}" /> -->
+                <select th:field="*{movie}">
+                    <option disabled selected value=""> -- </option>
+                    <option th:each="movi : ${movies}" th:value="${movi.movie_id}" th:text="${movi.title}">Select
+                        movie...</option>
+                </select>
+                <input type="number" min="0" max="5" th:field="*{rate}" th:errorclass="errorField" />
+                <span th:if="${#fields.hasErrors('rate')}" th:errors="*{rate}" class="errorMsg"></span>
+                <div>
+                    <button type="submit">SEND</button>
+                </div>
+
+            </form>
+
+
+        </div>
+        <!-- <script src="/lisMovie.js"></script> -->
+    </main>
+
+</body>
+
+</html>

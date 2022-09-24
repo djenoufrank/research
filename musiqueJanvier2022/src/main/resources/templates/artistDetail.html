@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<head th:replace="~{fragmentHead.html::myhead}"></head>
+<title>detail artiste</title>
+
+<body>
+    <header th:replace="~{fragment.html::myheader}"></header>
+    <main>
+        <img th:src="@{/image/__${artistC.login}__.jpg}" alt="pas d'image">
+        <!-- @{/image/logo.jpg}  -->
+        <h2>
+            <span>Détail des musiques de </span> <span th:text="${artistC.name}"></span>
+        </h2>
+
+        <div th:if="${#lists.isEmpty(tracks)}">
+            <span>Aucune chanson disponible.</span>
+        </div>
+
+        <div th:unless="${#lists.isEmpty(tracks)}">
+            <table border="1" style="background-color: cadetblue;">
+                <tr style="background-color: rgb(63, 63, 58);">
+                    <th>Titres</th>
+                    <th>stream</th>
+                    <th>mise a jour</th>
+                </tr>
+
+                <tr th:each="track : ${tracks}">
+                    <td><span th:text="${track.title}"></span></td>
+                    <td><span th:text="${track.stream}"></span></td>
+                    <td>
+                            <form method="post" th:object="${newTrack}">
+                                <input type="hidden" th:name="nameOfArtist" th:value="${artistC.login}" />
+                                <input type="hidden" th:name="id" th:value="${track.id}" />
+                                <input type="hidden" th:name="title" th:value="${track.title}" />
+                                <input type="number"  th:name="stream" th:value="0" th:errorclass="errorField"/>
+                                <span th:if="${#fields.hasErrors('stream')}" th:errors="*{stream}" class="errorMsg"></span>
+                                <button style="border:turquoise,solid,0.2em ; color: blue;" type="submit">Envoyer</button>
+                            </form>
+                    </td>
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>

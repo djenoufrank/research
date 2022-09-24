@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<head th:replace="~{fragmentHead.html::myhead}"></head>
+<title>Cinema</title>
+
+<body>
+    <header th:replace="~{fragment.html::myheader}"></header>
+    <main>
+        Bienvenue sur le site des cinemas.<br>
+        <div id="loginForm" sec:authorize="!isAuthenticated()">
+            <h2>Veuillez vous identifier</h2>
+            <div th:if="${param.errors}">
+                <span class="errorMsg">données incorrectes</span>
+            </div>
+            <form method="POST" th:action="@{/}">
+                <label>user name</label>
+                <input type="text" placeholder="Login..." name="username"><br>
+                <label>password</label>
+                <input type="password" placeholder="Mot de passe..." name="password">
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

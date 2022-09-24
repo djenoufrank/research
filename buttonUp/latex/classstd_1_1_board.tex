@@ -1,0 +1,186 @@
+\hypertarget{classstd_1_1_board}{}\doxysection{std\+::Board Class Reference}
+\label{classstd_1_1_board}\index{std::Board@{std::Board}}
+
+
+the table of the game  
+
+
+
+
+{\ttfamily \#include $<$board.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classstd_1_1_board_a8037aa4c8de4911b057fbc689e9d5ed3}{Board}} ()
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classstd_1_1_square}{Square}} \mbox{\hyperlink{classstd_1_1_board_a8dae12b959f2ddd9173363b135c7707f}{get\+Square}} (\mbox{\hyperlink{classstd_1_1_position}{Position}} \&position)
+\begin{DoxyCompactList}\small\item\em get\+Square at given position \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classstd_1_1_board_a1e73df788dc2be3adf34eb42aba020d8}{is\+Inside}} (\mbox{\hyperlink{classstd_1_1_position}{Position}} \&position)
+\begin{DoxyCompactList}\small\item\em says if it\textquotesingle{}s free or no \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classstd_1_1_board_a65e1aa0724b8dfbb3d65a901129b5fcc}{is\+Free}} (\mbox{\hyperlink{classstd_1_1_position}{Position}} \&position)
+\begin{DoxyCompactList}\small\item\em says if given position is free, so it\textquotesingle{}s desapear in that position, \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classstd_1_1_board_a0d99916868fab336976891d484c372d6}{add\+Button}} (\mbox{\hyperlink{classstd_1_1_button}{Button}} \&button, \mbox{\hyperlink{classstd_1_1_position}{Position}} \&position)
+\begin{DoxyCompactList}\small\item\em add button to the square at the given position \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classstd_1_1_button}{Button}} \mbox{\hyperlink{classstd_1_1_board_ae384968fbb65a4e5ebed2f1caebe6fcb}{remove\+Button}} (\mbox{\hyperlink{classstd_1_1_position}{Position}} \&position)
+\begin{DoxyCompactList}\small\item\em remove the \mbox{\hyperlink{classstd_1_1_button}{Button}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classstd_1_1_board_aced67ca7ae4c1936b1ca17221f8e1704}{remove\+Buttons}} (\mbox{\hyperlink{classstd_1_1_position}{Position}} \&position)
+\begin{DoxyCompactList}\small\item\em remove all buttons at the given position \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacestd_ac854eba38bbb59222d2397028fa1c4c2}{Color}} \mbox{\hyperlink{classstd_1_1_board_a36c16db1b3eef6918397779975cbcb17}{get\+Top\+Color}} (\mbox{\hyperlink{classstd_1_1_position}{Position}} \&position)
+\begin{DoxyCompactList}\small\item\em gives the color of the button on top \end{DoxyCompactList}\item 
+vector$<$ vector$<$ \mbox{\hyperlink{classstd_1_1_square}{Square}} $>$ $>$ \& \mbox{\hyperlink{classstd_1_1_board_a13865f93cd42da5110024ac20d6cc39d}{get\+Squares}} ()
+\begin{DoxyCompactList}\small\item\em gives all buttons of the game \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+the table of the game 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classstd_1_1_board_a8037aa4c8de4911b057fbc689e9d5ed3}\label{classstd_1_1_board_a8037aa4c8de4911b057fbc689e9d5ed3}} 
+\index{std::Board@{std::Board}!Board@{Board}}
+\index{Board@{Board}!std::Board@{std::Board}}
+\doxysubsubsection{\texorpdfstring{Board()}{Board()}}
+{\footnotesize\ttfamily std\+::\+Board\+::\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+default constructor 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classstd_1_1_board_a0d99916868fab336976891d484c372d6}\label{classstd_1_1_board_a0d99916868fab336976891d484c372d6}} 
+\index{std::Board@{std::Board}!addButton@{addButton}}
+\index{addButton@{addButton}!std::Board@{std::Board}}
+\doxysubsubsection{\texorpdfstring{addButton()}{addButton()}}
+{\footnotesize\ttfamily void std\+::\+Board\+::add\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classstd_1_1_button}{Button}} \&}]{button,  }\item[{\mbox{\hyperlink{classstd_1_1_position}{Position}} \&}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+add button to the square at the given position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em button} & to add. \\
+\hline
+{\em given} & position \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classstd_1_1_board_a8dae12b959f2ddd9173363b135c7707f}\label{classstd_1_1_board_a8dae12b959f2ddd9173363b135c7707f}} 
+\index{std::Board@{std::Board}!getSquare@{getSquare}}
+\index{getSquare@{getSquare}!std::Board@{std::Board}}
+\doxysubsubsection{\texorpdfstring{getSquare()}{getSquare()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classstd_1_1_square}{Square}} std\+::\+Board\+::get\+Square (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classstd_1_1_position}{Position}} \&}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get\+Square at given position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em given} & position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+square. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstd_1_1_board_a13865f93cd42da5110024ac20d6cc39d}\label{classstd_1_1_board_a13865f93cd42da5110024ac20d6cc39d}} 
+\index{std::Board@{std::Board}!getSquares@{getSquares}}
+\index{getSquares@{getSquares}!std::Board@{std::Board}}
+\doxysubsubsection{\texorpdfstring{getSquares()}{getSquares()}}
+{\footnotesize\ttfamily vector$<$ vector$<$ \mbox{\hyperlink{classstd_1_1_square}{Square}} $>$ $>$ \& std\+::\+Board\+::get\+Squares (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+gives all buttons of the game 
+
+\begin{DoxyReturn}{Returns}
+all buttons of the game 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstd_1_1_board_a36c16db1b3eef6918397779975cbcb17}\label{classstd_1_1_board_a36c16db1b3eef6918397779975cbcb17}} 
+\index{std::Board@{std::Board}!getTopColor@{getTopColor}}
+\index{getTopColor@{getTopColor}!std::Board@{std::Board}}
+\doxysubsubsection{\texorpdfstring{getTopColor()}{getTopColor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacestd_ac854eba38bbb59222d2397028fa1c4c2}{Color}} std\+::\+Board\+::get\+Top\+Color (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classstd_1_1_position}{Position}} \&}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+gives the color of the button on top 
+
+
+\begin{DoxyParams}{Parameters}
+{\em given} & position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the color at this position and on top 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstd_1_1_board_a65e1aa0724b8dfbb3d65a901129b5fcc}\label{classstd_1_1_board_a65e1aa0724b8dfbb3d65a901129b5fcc}} 
+\index{std::Board@{std::Board}!isFree@{isFree}}
+\index{isFree@{isFree}!std::Board@{std::Board}}
+\doxysubsubsection{\texorpdfstring{isFree()}{isFree()}}
+{\footnotesize\ttfamily bool std\+::\+Board\+::is\+Free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classstd_1_1_position}{Position}} \&}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+says if given position is free, so it\textquotesingle{}s desapear in that position, 
+
+
+\begin{DoxyParams}{Parameters}
+{\em given} & position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the position is free or no otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstd_1_1_board_a1e73df788dc2be3adf34eb42aba020d8}\label{classstd_1_1_board_a1e73df788dc2be3adf34eb42aba020d8}} 
+\index{std::Board@{std::Board}!isInside@{isInside}}
+\index{isInside@{isInside}!std::Board@{std::Board}}
+\doxysubsubsection{\texorpdfstring{isInside()}{isInside()}}
+{\footnotesize\ttfamily bool std\+::\+Board\+::is\+Inside (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classstd_1_1_position}{Position}} \&}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+says if it\textquotesingle{}s free or no 
+
+
+\begin{DoxyParams}{Parameters}
+{\em given} & position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the position is inside the board or no otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstd_1_1_board_ae384968fbb65a4e5ebed2f1caebe6fcb}\label{classstd_1_1_board_ae384968fbb65a4e5ebed2f1caebe6fcb}} 
+\index{std::Board@{std::Board}!removeButton@{removeButton}}
+\index{removeButton@{removeButton}!std::Board@{std::Board}}
+\doxysubsubsection{\texorpdfstring{removeButton()}{removeButton()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classstd_1_1_button}{Button}} std\+::\+Board\+::remove\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classstd_1_1_position}{Position}} \&}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+remove the \mbox{\hyperlink{classstd_1_1_button}{Button}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em given} & position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+button that are remove 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstd_1_1_board_aced67ca7ae4c1936b1ca17221f8e1704}\label{classstd_1_1_board_aced67ca7ae4c1936b1ca17221f8e1704}} 
+\index{std::Board@{std::Board}!removeButtons@{removeButtons}}
+\index{removeButtons@{removeButtons}!std::Board@{std::Board}}
+\doxysubsubsection{\texorpdfstring{removeButtons()}{removeButtons()}}
+{\footnotesize\ttfamily void std\+::\+Board\+::remove\+Buttons (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classstd_1_1_position}{Position}} \&}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+remove all buttons at the given position 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+metier/\mbox{\hyperlink{board_8h}{board.\+h}}\end{DoxyCompactItemize}

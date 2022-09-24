@@ -1,0 +1,377 @@
+\hypertarget{classstd_1_1_game}{}\doxysection{std\+::Game Class Reference}
+\label{classstd_1_1_game}\index{std::Game@{std::Game}}
+
+
+The logic of all the game .  
+
+
+
+
+{\ttfamily \#include $<$game.\+h$>$}
+
+Inheritance diagram for std\+::Game\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classstd_1_1_game}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classstd_1_1_game_ad34c3c64ed6651150ce827e495333002}{Game}} ()
+\begin{DoxyCompactList}\small\item\em game constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classstd_1_1_game_a832bf84f075f53d24a80137c35792520}{$\sim$\+Game}} ()
+\begin{DoxyCompactList}\small\item\em game destructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classstd_1_1_game_a9a5ad54f297729a933f6b1edf40e4d8d}{Game}} (\mbox{\hyperlink{classstd_1_1_game}{Game}} \&game)
+\begin{DoxyCompactList}\small\item\em constructor of game by copy \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classstd_1_1_game_ac71ebd01a4f7a5971dbc007982d57429}{initialize}} ()
+\begin{DoxyCompactList}\small\item\em initialize the game \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classstd_1_1_game_a883c1fd3e53582481cf6ad840371e778}{select}} (int line, int column)
+\begin{DoxyCompactList}\small\item\em select position \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classstd_1_1_game_ac542a3925d3c1051f6980936da3404cd}{can\+Add\+Button}} (\mbox{\hyperlink{classstd_1_1_position}{Position}} \&position)
+\begin{DoxyCompactList}\small\item\em can i add button \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classstd_1_1_position}{Position}} $>$ \mbox{\hyperlink{classstd_1_1_game_a8c237127a2175b3f40f94b95ab8b382c}{get\+Move\+Positions}} ()
+\begin{DoxyCompactList}\small\item\em get the Movable Positions \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classstd_1_1_game_aa30a6a72d5f98c2523f9d4434ed9d42b}{apply\+Move}} ()
+\begin{DoxyCompactList}\small\item\em apply the move \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classstd_1_1_game_aff97399dbb6a76b2f7263549507b7a1f}{swap\+Players}} ()
+\begin{DoxyCompactList}\small\item\em swap player that has hand \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classstd_1_1_game_aa7a46d6bd95aab9260a1df2067fbe1a5}{manche\+Is\+Over}} ()
+\begin{DoxyCompactList}\small\item\em says if the instance of game is over \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classstd_1_1_game_af247063d9ceb6ba0a4fd501bc403ba47}{game\+Is\+Over}} ()
+\begin{DoxyCompactList}\small\item\em says if the game is over \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classstd_1_1_game_a5e462a3392c46a7f6b840bf8ff9e15e8}{score\+Counter}} (\mbox{\hyperlink{classstd_1_1_square}{Square}} square)
+\begin{DoxyCompactList}\small\item\em counter of my score \end{DoxyCompactList}\item 
+stringstream \mbox{\hyperlink{classstd_1_1_game_a42d0b3e4509b7e0dad21f999ccc8c39c}{square\+View}} ()
+\begin{DoxyCompactList}\small\item\em it goes through all the board game,says number of buttons in all squares \end{DoxyCompactList}\item 
+stringstream \mbox{\hyperlink{classstd_1_1_game_a873e6d5f12e0ffa72512039c0686c4a9}{get\+Winner}} ()
+\begin{DoxyCompactList}\small\item\em get the winner \end{DoxyCompactList}\item 
+stringstream \mbox{\hyperlink{classstd_1_1_game_a6a30e6d09a4076dfdf5bdb45ef8ea142}{get\+Winner\+Gui}} ()
+\begin{DoxyCompactList}\small\item\em get the winner in gui version \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classstd_1_1_position}{Position}} $>$ \mbox{\hyperlink{classstd_1_1_game_a55b2fc9fe82035b65be2fcdff83fc801}{get\+Positions}} ()
+\begin{DoxyCompactList}\small\item\em get all Positions \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classstd_1_1_game_acfd303a7a001b0b62f3ec87d81ede20d}{get\+Can\+Swap\+Players}} ()
+\begin{DoxyCompactList}\small\item\em getter to knoww if we can swap Players \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classstd_1_1_game_a464729c05fde54323791cef746cf545b}{get\+Indice\+Last\+Position}} ()
+\begin{DoxyCompactList}\small\item\em getter to know laster positions \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classstd_1_1_game_a847e4db171d0430e4b569ce7ab85191e}{get\+Red\+Score}} ()
+\begin{DoxyCompactList}\small\item\em get the score of player red \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classstd_1_1_game_a8f217507feaea847c81819b53c957f70}{get\+Black\+Score}} ()
+\begin{DoxyCompactList}\small\item\em get the score of player black \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classstd_1_1_player}{Player}} \mbox{\hyperlink{classstd_1_1_game_ae3c2f4d8e08d70b92849e9d6961e5590}{get\+Current}} ()
+\begin{DoxyCompactList}\small\item\em get current player \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classstd_1_1_player}{Player}} \mbox{\hyperlink{classstd_1_1_game_a3d0ad262a90a7b81543f6d124f9dece3}{get\+Opponent}} ()
+\begin{DoxyCompactList}\small\item\em get opponent player \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classstd_1_1_position}{Position}} \mbox{\hyperlink{classstd_1_1_game_a91d8a950ca0289a63cef6d03bd71f0c7}{get\+Selected}} ()
+\begin{DoxyCompactList}\small\item\em getter for selected position \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classstd_1_1_board}{Board}} \& \mbox{\hyperlink{classstd_1_1_game_ab6930d34e089211decb1befe22f4ac42}{get\+Board}} ()
+\begin{DoxyCompactList}\small\item\em getter for board \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+The logic of all the game . 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classstd_1_1_game_ad34c3c64ed6651150ce827e495333002}\label{classstd_1_1_game_ad34c3c64ed6651150ce827e495333002}} 
+\index{std::Game@{std::Game}!Game@{Game}}
+\index{Game@{Game}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{Game()}{Game()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::\+Game\+::\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+game constructor 
+
+\mbox{\Hypertarget{classstd_1_1_game_a832bf84f075f53d24a80137c35792520}\label{classstd_1_1_game_a832bf84f075f53d24a80137c35792520}} 
+\index{std::Game@{std::Game}!````~Game@{$\sim$Game}}
+\index{````~Game@{$\sim$Game}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{$\sim$Game()}{~Game()}}
+{\footnotesize\ttfamily std\+::\+Game\+::$\sim$\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+game destructor 
+
+\mbox{\Hypertarget{classstd_1_1_game_a9a5ad54f297729a933f6b1edf40e4d8d}\label{classstd_1_1_game_a9a5ad54f297729a933f6b1edf40e4d8d}} 
+\index{std::Game@{std::Game}!Game@{Game}}
+\index{Game@{Game}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{Game()}{Game()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::\+Game\+::\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classstd_1_1_game}{Game}} \&}]{game }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructor of game by copy 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classstd_1_1_game_aa30a6a72d5f98c2523f9d4434ed9d42b}\label{classstd_1_1_game_aa30a6a72d5f98c2523f9d4434ed9d42b}} 
+\index{std::Game@{std::Game}!applyMove@{applyMove}}
+\index{applyMove@{applyMove}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{applyMove()}{applyMove()}}
+{\footnotesize\ttfamily void std\+::\+Game\+::apply\+Move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+apply the move 
+
+\mbox{\Hypertarget{classstd_1_1_game_ac542a3925d3c1051f6980936da3404cd}\label{classstd_1_1_game_ac542a3925d3c1051f6980936da3404cd}} 
+\index{std::Game@{std::Game}!canAddButton@{canAddButton}}
+\index{canAddButton@{canAddButton}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{canAddButton()}{canAddButton()}}
+{\footnotesize\ttfamily bool std\+::\+Game\+::can\+Add\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classstd_1_1_position}{Position}} \&}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+can i add button 
+
+
+\begin{DoxyParams}{Parameters}
+{\em given} & position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true i can add button on this position or false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstd_1_1_game_af247063d9ceb6ba0a4fd501bc403ba47}\label{classstd_1_1_game_af247063d9ceb6ba0a4fd501bc403ba47}} 
+\index{std::Game@{std::Game}!gameIsOver@{gameIsOver}}
+\index{gameIsOver@{gameIsOver}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{gameIsOver()}{gameIsOver()}}
+{\footnotesize\ttfamily bool std\+::\+Game\+::game\+Is\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+says if the game is over 
+
+\mbox{\Hypertarget{classstd_1_1_game_a8f217507feaea847c81819b53c957f70}\label{classstd_1_1_game_a8f217507feaea847c81819b53c957f70}} 
+\index{std::Game@{std::Game}!getBlackScore@{getBlackScore}}
+\index{getBlackScore@{getBlackScore}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{getBlackScore()}{getBlackScore()}}
+{\footnotesize\ttfamily int std\+::\+Game\+::get\+Black\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get the score of player black 
+
+\begin{DoxyReturn}{Returns}
+the score of player black 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstd_1_1_game_ab6930d34e089211decb1befe22f4ac42}\label{classstd_1_1_game_ab6930d34e089211decb1befe22f4ac42}} 
+\index{std::Game@{std::Game}!getBoard@{getBoard}}
+\index{getBoard@{getBoard}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{getBoard()}{getBoard()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classstd_1_1_board}{Board}} \& std\+::\+Game\+::get\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+getter for board 
+
+\begin{DoxyReturn}{Returns}
+board 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstd_1_1_game_acfd303a7a001b0b62f3ec87d81ede20d}\label{classstd_1_1_game_acfd303a7a001b0b62f3ec87d81ede20d}} 
+\index{std::Game@{std::Game}!getCanSwapPlayers@{getCanSwapPlayers}}
+\index{getCanSwapPlayers@{getCanSwapPlayers}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{getCanSwapPlayers()}{getCanSwapPlayers()}}
+{\footnotesize\ttfamily bool std\+::\+Game\+::get\+Can\+Swap\+Players (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+getter to knoww if we can swap Players 
+
+\begin{DoxyReturn}{Returns}
+true if yes and false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstd_1_1_game_ae3c2f4d8e08d70b92849e9d6961e5590}\label{classstd_1_1_game_ae3c2f4d8e08d70b92849e9d6961e5590}} 
+\index{std::Game@{std::Game}!getCurrent@{getCurrent}}
+\index{getCurrent@{getCurrent}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{getCurrent()}{getCurrent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classstd_1_1_player}{Player}} std\+::\+Game\+::get\+Current (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get current player 
+
+\begin{DoxyReturn}{Returns}
+current player 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstd_1_1_game_a464729c05fde54323791cef746cf545b}\label{classstd_1_1_game_a464729c05fde54323791cef746cf545b}} 
+\index{std::Game@{std::Game}!getIndiceLastPosition@{getIndiceLastPosition}}
+\index{getIndiceLastPosition@{getIndiceLastPosition}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{getIndiceLastPosition()}{getIndiceLastPosition()}}
+{\footnotesize\ttfamily int std\+::\+Game\+::get\+Indice\+Last\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+getter to know laster positions 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstd_1_1_game_a8c237127a2175b3f40f94b95ab8b382c}\label{classstd_1_1_game_a8c237127a2175b3f40f94b95ab8b382c}} 
+\index{std::Game@{std::Game}!getMovePositions@{getMovePositions}}
+\index{getMovePositions@{getMovePositions}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{getMovePositions()}{getMovePositions()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classstd_1_1_position}{Position}} $>$ std\+::\+Game\+::get\+Move\+Positions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get the Movable Positions 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstd_1_1_game_a3d0ad262a90a7b81543f6d124f9dece3}\label{classstd_1_1_game_a3d0ad262a90a7b81543f6d124f9dece3}} 
+\index{std::Game@{std::Game}!getOpponent@{getOpponent}}
+\index{getOpponent@{getOpponent}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{getOpponent()}{getOpponent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classstd_1_1_player}{Player}} std\+::\+Game\+::get\+Opponent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get opponent player 
+
+\begin{DoxyReturn}{Returns}
+opponent player 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstd_1_1_game_a55b2fc9fe82035b65be2fcdff83fc801}\label{classstd_1_1_game_a55b2fc9fe82035b65be2fcdff83fc801}} 
+\index{std::Game@{std::Game}!getPositions@{getPositions}}
+\index{getPositions@{getPositions}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{getPositions()}{getPositions()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classstd_1_1_position}{Position}} $>$ std\+::\+Game\+::get\+Positions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get all Positions 
+
+\begin{DoxyReturn}{Returns}
+all positions 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstd_1_1_game_a847e4db171d0430e4b569ce7ab85191e}\label{classstd_1_1_game_a847e4db171d0430e4b569ce7ab85191e}} 
+\index{std::Game@{std::Game}!getRedScore@{getRedScore}}
+\index{getRedScore@{getRedScore}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{getRedScore()}{getRedScore()}}
+{\footnotesize\ttfamily int std\+::\+Game\+::get\+Red\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get the score of player red 
+
+\begin{DoxyReturn}{Returns}
+the score of player red 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstd_1_1_game_a91d8a950ca0289a63cef6d03bd71f0c7}\label{classstd_1_1_game_a91d8a950ca0289a63cef6d03bd71f0c7}} 
+\index{std::Game@{std::Game}!getSelected@{getSelected}}
+\index{getSelected@{getSelected}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{getSelected()}{getSelected()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classstd_1_1_position}{Position}} std\+::\+Game\+::get\+Selected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+getter for selected position 
+
+\begin{DoxyReturn}{Returns}
+position selected 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstd_1_1_game_a873e6d5f12e0ffa72512039c0686c4a9}\label{classstd_1_1_game_a873e6d5f12e0ffa72512039c0686c4a9}} 
+\index{std::Game@{std::Game}!getWinner@{getWinner}}
+\index{getWinner@{getWinner}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{getWinner()}{getWinner()}}
+{\footnotesize\ttfamily stringstream std\+::\+Game\+::get\+Winner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get the winner 
+
+\begin{DoxyReturn}{Returns}
+the winner 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstd_1_1_game_a6a30e6d09a4076dfdf5bdb45ef8ea142}\label{classstd_1_1_game_a6a30e6d09a4076dfdf5bdb45ef8ea142}} 
+\index{std::Game@{std::Game}!getWinnerGui@{getWinnerGui}}
+\index{getWinnerGui@{getWinnerGui}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{getWinnerGui()}{getWinnerGui()}}
+{\footnotesize\ttfamily stringstream std\+::\+Game\+::get\+Winner\+Gui (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get the winner in gui version 
+
+\begin{DoxyReturn}{Returns}
+the winner 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstd_1_1_game_ac71ebd01a4f7a5971dbc007982d57429}\label{classstd_1_1_game_ac71ebd01a4f7a5971dbc007982d57429}} 
+\index{std::Game@{std::Game}!initialize@{initialize}}
+\index{initialize@{initialize}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily void std\+::\+Game\+::initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+initialize the game 
+
+\mbox{\Hypertarget{classstd_1_1_game_aa7a46d6bd95aab9260a1df2067fbe1a5}\label{classstd_1_1_game_aa7a46d6bd95aab9260a1df2067fbe1a5}} 
+\index{std::Game@{std::Game}!mancheIsOver@{mancheIsOver}}
+\index{mancheIsOver@{mancheIsOver}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{mancheIsOver()}{mancheIsOver()}}
+{\footnotesize\ttfamily bool std\+::\+Game\+::manche\+Is\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+says if the instance of game is over 
+
+\mbox{\Hypertarget{classstd_1_1_game_a5e462a3392c46a7f6b840bf8ff9e15e8}\label{classstd_1_1_game_a5e462a3392c46a7f6b840bf8ff9e15e8}} 
+\index{std::Game@{std::Game}!scoreCounter@{scoreCounter}}
+\index{scoreCounter@{scoreCounter}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{scoreCounter()}{scoreCounter()}}
+{\footnotesize\ttfamily void std\+::\+Game\+::score\+Counter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classstd_1_1_square}{Square}}}]{square }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+counter of my score 
+
+\mbox{\Hypertarget{classstd_1_1_game_a883c1fd3e53582481cf6ad840371e778}\label{classstd_1_1_game_a883c1fd3e53582481cf6ad840371e778}} 
+\index{std::Game@{std::Game}!select@{select}}
+\index{select@{select}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{select()}{select()}}
+{\footnotesize\ttfamily void std\+::\+Game\+::select (\begin{DoxyParamCaption}\item[{int}]{line,  }\item[{int}]{column }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+select position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ligne} & of selection \\
+\hline
+{\em colomn} & of selection \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classstd_1_1_game_a42d0b3e4509b7e0dad21f999ccc8c39c}\label{classstd_1_1_game_a42d0b3e4509b7e0dad21f999ccc8c39c}} 
+\index{std::Game@{std::Game}!squareView@{squareView}}
+\index{squareView@{squareView}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{squareView()}{squareView()}}
+{\footnotesize\ttfamily stringstream std\+::\+Game\+::square\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+it goes through all the board game,says number of buttons in all squares 
+
+\begin{DoxyReturn}{Returns}
+numbers of buttons in differents squares 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstd_1_1_game_aff97399dbb6a76b2f7263549507b7a1f}\label{classstd_1_1_game_aff97399dbb6a76b2f7263549507b7a1f}} 
+\index{std::Game@{std::Game}!swapPlayers@{swapPlayers}}
+\index{swapPlayers@{swapPlayers}!std::Game@{std::Game}}
+\doxysubsubsection{\texorpdfstring{swapPlayers()}{swapPlayers()}}
+{\footnotesize\ttfamily void std\+::\+Game\+::swap\+Players (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+swap player that has hand 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+metier/\mbox{\hyperlink{game_8h}{game.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,28 @@
+<div th:fragment="myheader" style="background-color: cadetblue; text-align: center; display: grid;">
+    <div>
+        <header>
+            <h1>cinema
+            </h1>
+            <h2>HE2B-ESI / WEBG6 / 2021-2022</h2>
+
+        </header>
+    </div>
+    <div class="div">
+        <nav>
+            <a th:href="@{/}">Home</a>
+            <div sec:authorize="isAuthenticated()">
+                <a th:href="@{/private/avis}">Avis</a>
+                <a th:href="@{/private/ajouterAvis}">Ajouter avis</a>
+                <div class="login">
+                    <span sec:authentication="name"></span>
+                    <form method="POST" th:action="@{/logout}" sec:authorize="isAuthenticated()">
+                        <button type="submit">Logout</button>
+                    </form>
+                </div>
+
+            </div>
+
+        </nav>
+    </div>
+
+</div>

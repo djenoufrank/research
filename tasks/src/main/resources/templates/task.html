@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<head th:replace="~{fragmentHead.html::myhead}"></head>
+<title>Tasks</title>
+
+<body>
+    <header th:replace="~{fragment.html::myheader}"></header>
+    <main>
+        <p>Tableau de bord</p><br><br>
+        <div th:unless="${#lists.isEmpty(students)}">
+            <div th:unless="${#lists.isEmpty(tasks)}">
+                <table border="1">
+                    
+                    <tr>
+                        <th>dd</th>
+                        <th th:each="task : ${tasks}"><span th:text="${task.task_id}" ></span></th>
+                    </tr>
+                    <tr th:each="student : ${students}">
+                        <td ><span th:text="${student.name}" ></span></td>
+                        <span th:each="task : ${tasks}">
+                            <div th:each="studentTask : ${studentsTask}">
+                                <div th:if="${student.number == studentTask.student_task_ids.number}">
+                                    <span th:if="${studentTask.fait == FALSE}">
+                                        <td ><input type="checkbox"/></td>
+                                    </span>
+                                    <span th:if="${studentTask.fait == TRUE}">
+                                        <td><input type="checkbox" checked/></td>
+                                    </span>
+                                </div>
+                            
+                            
+                            </div>
+                        </span>
+                    </tr>
+                </table>
+            </div>
+            <div th:if="${#lists.isEmpty(tasks)}">
+                Aucune tache de défini pour l'instant
+            </div>
+        </div>
+        <div th:if="${#lists.isEmpty(students)}">
+            Aucun etudiant de défini pour l'instant
+        </div>
+    </main>
+</body>
+
+</html>

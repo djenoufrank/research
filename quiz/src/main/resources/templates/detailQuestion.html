@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main layout:fragment="contenu">  
+        <h2>Liste des reponses de la question:<br>  <span th:text="${question}" ></span></h2>
+        <div th:unless="${#lists.isEmpty(answers)}">
+            <table border="1" style ="background-color: cadetblue;">
+                <tr>
+                    <th>Date</th>
+                    <th>reponse</th>
+                </tr>
+                <tr th:each="a : ${answers}">
+                    <td><span th:text="${a.dateAdded}"></span></td>
+                          <td><span th:text="${a.agree}"></span></td>
+                </tr>
+            </table>
+        </div>
+        <div th:if="${#lists.isEmpty(answers)}">
+            Aucune reponse de défini pour l'instant a cette question
+        </div>
+
+        <a th:href="@{/question}">Retour aux questions</a>
+
+        <div>
+            <form method="post">
+                <input type="checkbox" th:name="checkboxName" />Je suis d'accord<br>
+                <button type="submit">Enregistrer</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

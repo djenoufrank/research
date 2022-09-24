@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{style.css}" />
+    <title>Document</title>
+</head>
+
+<body>
+    <header th:replace="~{welcome.html::header}"></header>
+
+    <main>
+        <h2>Liste des etudiants du cour  <span th:text="${cour.course_id}" ></span></h2>
+        <div th:unless="${#lists.isEmpty(studentss)}">
+            <table border="1" style ="background-color: cadetblue;">
+                <tr>
+                    <th>Matricule</th>
+                    <th>Nom</th>
+                    <th>Genre</th>
+                    <th>Section</th>
+                </tr>
+                <tr th:each="student : ${studentss}">
+                    <td><span th:text="${student.student_id}"></span></td>
+                          <td><span th:text="${student.name}"></span></td>
+                    <td>
+                        <span th:if="${student.gender == 'FEMALE'}">F</span>
+                        <span th:unless="${student.gender == 'FEMALE'}">M</span>
+                    </td>
+                    <!-- <td><span th:text="${student.gender}"></span></td> -->
+                    <span th:switch="${student.section.name()}">
+                        <td th:case="GESTION">Gestion</td>
+                        <td th:case="INDUSTRIELLE">Industrielle</td>
+                        <td th:case="RESEAU">Réseau</td>
+                    </span>
+                </tr>
+            </table>
+        </div>
+        <div th:if="${#lists.isEmpty(studentss)}">
+            Aucun etudiant de défini pour l'instant a ce cour
+        </div>
+
+    </main>
+</body>
+
+</html>

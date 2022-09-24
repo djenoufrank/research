@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout}">
+
+<head>
+    <title>project detail</title>
+</head>
+
+<body>
+    <main layout:fragment="contenu">
+    
+            <h2>
+                <span>Détail du projet </span> <span th:text="${projectName}"></span>
+            </h2>
+
+            <div th:if="${#lists.isEmpty(sprints)}">
+                <span>Aucune historique pour ce projet</span>
+            </div>
+
+            <div th:unless="${#lists.isEmpty(sprints)}">
+                <table>
+                    <tr>
+                        <th>Titres</th>
+                        <th>Sprints</th>
+                        <th>Points</th>
+                    </tr>
+
+                    <span th:each="sprint : ${sprints}">
+                        <tr th:each="story : ${sprint.stories}">
+                            <td th:text="${story.title}"></td>
+                            <td th:text="${sprint.number}"></td>
+                            <td th:text="${story.estimate}"></td>
+                        </tr>
+                    </span>
+
+                </table>
+            </div>
+
+            <div id="divButton">
+                <form method="get" th:action="@{/projects}">
+                    <button type="submit">Retour</button>
+                </form>
+            </div> 
+            <div sec:authorize="isAuthenticated()">
+                <form method="get" th:action="@{projects/projectDetail/addStory(project=${projectName})}" >
+                    <input type="hidden"  th:name="project" th:value="${projectName}"/> 
+                    <button  type="submit">Ajouter une histoire</button>
+                </form>
+            </div>
+                
+               
+    </main>
+</body>
+
+</html>

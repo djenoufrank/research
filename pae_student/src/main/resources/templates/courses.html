@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" th:href="@{style.css}"/> 
+     <title>Document</title>
+</head>
+<body>
+    <header th:replace="~{welcome.html::header}"></header>
+
+    <main>   
+        <h2 th:text="#{listeC}">Liste des cours</h2>
+        <div th:unless="${#lists.isEmpty(courses)}">
+            <table border="1" style ="background-color: cadetblue;">
+                <tr>
+                    <th>Sigle</th>
+                    <th>Titre</th>
+                    <th>ECTS</th>
+                </tr>
+                <tr th:each="course : ${courses}">
+                    <td ><a  th:href="@{/private/theCourseStudents/{course_id}/students(course_id=${course.course_id})}"><span th:text="${course.course_id}" ></span></a></td>
+                    <td><span th:text="${#strings.toUpperCase(course.title)}"></span></td>
+                    <td><span th:text="${course.credits}"></span></td>
+                </tr>
+            </table>
+        </div>
+        <div th:if="${#lists.isEmpty(courses)}" th:text="#{pascour}">
+            Aucun cours de défini pour l'instant
+        </div>
+
+        <div sec:authorize="${hasAuthority('SECR')}">
+            <form th:action="@{/private/courses}" th:object="${newCourse}" method="post">
+                <label>Sigle</label>
+                <input type="text" th:field="*{course_id}" th:errorclass="errorField" />
+                <span th:if="${#fields.hasErrors('course_id')}" th:errors="*{course_id}" class="errorMsg"></span><br>
+                <label>titre</label>
+                <input type="text" th:field="*{title}"/><br>
+                <label>credits</label>
+                <input type="text" th:field="*{credits}" th:errorclass="errorField" />
+                <span th:if="${#fields.hasErrors('credits')}" th:errors="*{credits}" class="errorMsg"></span><br>
+                <button type="submit">Envoyer</button>
+                </form>
+        </div>
+    </main>
+</body>
+
+</html>

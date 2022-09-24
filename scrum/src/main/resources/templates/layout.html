@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{style.css}" href="../static/css/style.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <header style="background-color: cadetblue; text-align: center; display: grid;">
+        <h1 th:text="#{program}">a
+            <!-- <img th:src="@{resources/images/HE2B-Logo-ESI.jpg}"/> -->
+        </h1>
+        <h2>HE2B-ESI / WEBG5 / DZF / 2021-2022</h2>
+
+
+        <div class="div">
+            <nav>
+                <ul>
+                    <li><a th:href="@{/}">Home</a> </li>
+                    <li> <a th:href="@{/courses}">Courses</a></li>
+                </ul>
+            </nav>
+        </div>
+
+
+    </header>
+
+    <main layout:fragment="contenu">
+
+    </main>
+
+</body>
+
+</html>
