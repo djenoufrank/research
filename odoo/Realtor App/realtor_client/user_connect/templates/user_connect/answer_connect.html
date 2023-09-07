@@ -1,0 +1,17 @@
+{% extends "_base.html" %}
+
+{% block content %}
+  {% if result == 'true' %}  
+    <div class="alert alert-success">vos données sont correctes,connection réussie :)</div>
+    <form action="{% url 'user_connect:realtor' %}" method="post"> 
+      {% csrf_token %} 
+      <button class="btn" style="background-color: #c090b8;margin-top: 50px; margin-left: 10px;">Visualiser les appartements</button>
+    </form>        
+  {% else %}
+    <div class="alert alert-danger">données incorrectes, erreur de connection</div>
+    <form action="{% url 'user_connect:index' %}" method="post"> 
+      {% csrf_token %} 
+      <button  class="btn" style="background-color: #c090b8;margin-top: 50px; margin-left: 10px;">retour au formulaire de connection </button>
+    </form>  
+  {% endif %}
+{% endblock content %}

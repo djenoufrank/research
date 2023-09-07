@@ -1,0 +1,42 @@
+<odoo>
+    <record id="view_tree_flat" model="ir.ui.view">
+        <field name="name">flat Tree</field>
+        <field name="model">realtor.flat</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="price"/>
+                <field name="bestPrice"/>
+                <field name="flatSurface"/>
+                <field name="provider"/>
+                <field name="terraceSurface"/>
+                <field name="bestBuyer"/>
+                <field name="image" widget="image" class="oe_avatar" options="{'size': [100, 100]}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_form_flat" model="ir.ui.view">
+        <field name="name">flat Form</field>
+        <field name="model">realtor.flat</field>
+        <field name="arch" type="xml">
+            <form string="Flat Form"><sheet><group>
+            <group string="general information">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="image"/>
+                <field name="price"/>
+                <field name="flatSurface"/>
+                <field name="terraceSurface"/>
+                <field name="totalSurface"/>
+                <field name="provider"/>
+            </group>
+            <group string="Best buyer information">
+                <field name="disponibilityDate"/>
+                <field name="bestBuyer"/>
+                <field name="bestPrice"/>
+            </group>
+            </group></sheet></form>
+        </field>
+    </record>
+</odoo>

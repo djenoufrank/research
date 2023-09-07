@@ -1,0 +1,58 @@
+{% extends "_base.html" %}
+{% block title %}realtor_client{% endblock title %}
+{% block content %}
+  <div class="p-4" style="background-color: #c090b8">
+    <h4 class="display-4">Realtor client</h4>
+    <h6><i>ici le plus offrant est roi</i></h6>
+  </div>
+
+  <div class="container-sm l-3 d-flex flex-wrap border">
+  {% for flat in allFlats %}
+    <div class="card m-2 p-1 rounded-lg" style="width:300px">
+      <img src="data:image/png;base64,{{ flat.image }}" class="card-img-top" alt="nothing to show">
+      <div class="card-body">
+        <h5 class="card-title">{{ flat.name }}</h5>
+        Description :<h6 class="card-text">{{ flat.description }}</h6><br>
+        Total Surface :<strong>{{ flat.flatSurface }}</strong><br>
+        Prix : <strong>{{ flat.price }}</strong><br>
+        Offre actuelle : <strong>{{ flat.bestPrice }}</strong><br>
+        Offre faite par : <strong>{{ flat.bestBuyer }}</strong><br>
+        Quantité Disponible :
+        {% for product in products %}
+          {% if product.name == flat.name  %}
+              {% for key, value in stocks.items %}
+                {% if key == product.id  %}
+                  <strong>{{ value }} </strong> 
+                {% endif %}
+              {% endfor %}
+          {% endif %} 
+      {% endfor %}
+      <button type="button" id="{{ flat.id }}" data-toggle="modal" data-target="#add-dev-modal{{ flat.id }}" class="btn" style="background-color: #c090b8;margin-top: 50px; margin-left: 10px;">faire une offre</button>
+        <div class="modal fade " id="add-dev-modal{{ flat.id }}">
+          <div class="modal-dialog modal-dialog-centered" id="{{ flat.id }}">
+              <div class="modal-content" >
+                  <div class="modal-header" tyle="background-color: #c090b8">
+                    <h4 class="modal-title">nouvelle offre</h4>
+                    <button type="button" class="close" datadismiss="modal"><i class="fa fa-close"></i></button>
+                  </div>
+                  <div class="modal-body">
+                    <form action="{% url 'flatApp:create' %}" method="post">
+                      {% csrf_token %}
+                      <label for="name">nom de l'acheteur</label>
+                      <input type="text" name="name" required> <br/>
+                      <label for="mount">montant de l'offre</label> 
+                      <input type="text" name="mount" required>
+                      <input type="hidden" name="flatId" value="{{ flat.id }}">
+                      <div>
+                        <button  type="submit" class="btn" style="background-color: #c090b8;margin-top: 50px; margin-left: 10px;">soumettre</button>
+                      </div>
+                    </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+    </div>
+  {% endfor %}  
+</div> 
+{% endblock content %}

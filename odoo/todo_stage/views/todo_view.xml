@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="todo_task_form_view">
+            <field name="name">Todo Task Form</field>
+            <field name="model">todo.task</field>
+            <field name="priority">15</field>
+            <field name="arch" type="xml">
+                <form string="Task Form">
+                    <header>
+                        <button name="do_clear_done" string="Clear Done" type="object" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <group string="General">
+                            <field name="name" />
+                            <field name="user_id" />
+                            <field name="is_done" />
+                            <field name="tag_ids" />
+                        </group>
+                        <group string="Schedule">
+                            <field name="date_deadline" />
+                            <field name="active" readonly="1" />
+                            <field name="team_ids" />
+                            <field name="effort_estimate"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        
+       <record model="ir.ui.view" id="todo_task_tree_view">
+            <!--est sur la vue de consultation -->
+            <field name="name">Todo Task Tree</field>
+            <field name="model">todo.task</field>
+            <field name="priority">15</field>
+            <field name="arch" type="xml">
+                <tree string="Task Tree" decoration-muted="is_done == True" delete="false" duplicate="false">
+                    <!--decoration-muted mets l'objet ou le record concerner en gris lorsquon cauche is_done   -->
+                    <field name="name" />
+                    <field name="date_deadline" />
+                    <field name="is_done" />
+                    <field name="effort_estimate"/>
+                    <field name="tag_ids"/>                    
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="todo_task_search_view">
+            <field name="name">Todo Task Search</field>
+            <field name="model">todo.task</field>
+            <field name="priority">15</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" />
+                    <field name="user_id" />
+                    <!-- en cliquant sur le bouton filtre on aura le choix entre is done et not done  -->
+                    <filter name="filter_is_done" string="is Done" domain="[('is_done','=',True)]" />
+                    <filter name="filter_is_not_done" string="Not Done" domain="[('is_done','=',False)]" />
+                    <filter name="notActive" string="not active task" domain="[('active','=',False)]"/><!--sélectionne les tâches dont l’attribut active est à faux -->
+                    <group string="Group By">
+                        <filter name="group_user" string="By User"
+                                context="{'group_by': 'user_id'}"/><!-- regrouper les tâches par
+                                    responsable ie user_id-->
+                    </group>
+    
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

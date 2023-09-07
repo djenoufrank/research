@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <menuitem
+            id="diplome_menu"
+            name="Diplome"
+            parent="openacademy.openacademy_menu"
+            action="calendar.action_calendar_event" /> <!--on n'aura pas l'appi visible, elle ajoute juste l'option diplome sur le menu openacademy_menu du mondule openacademy-->
+    </data>
+</odoo>
