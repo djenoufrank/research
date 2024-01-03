@@ -31,7 +31,7 @@ public class Router {
 
         // recevoir un paquet du host et le mettre dans la file d'attente
         if (packetQueue.size() < queueCapacity) {
-            packet.setArrivalRouterTime(System.currentTimeMillis());
+            packet.setArrivalRouterTime(System.nanoTime());
             packetQueue.add(packet);
             packet.setPosition(packetQueue.size());
         } else {
@@ -50,20 +50,15 @@ public class Router {
         while (!packetQueue.isEmpty()) {
 
             Packet packet = packetQueue.poll();
+            packet.setDepartureRouterTime(System.nanoTime());
             try {
-                Thread.sleep((long)(packet.getLink2().calculateTransmissionTime(packet.getData()))+1); // délai de transmission
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            packet.setDepartureRouterTime(System.currentTimeMillis());
-            try {
-                Thread.sleep((long)(packet.getLink2().calculatePropagationTime()+packet.getLink2().calculateTransmissionTime(packet.getData())+1));
+                Thread.sleep((long)(packet.getLink2().calculatePropagationTime()+packet.getLink2().calculateTransmissionTime(packet.getData())*1000));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             packet.getDestination().receivePacket(packet);
             //System.out.println("Router processing packet: " + packet.getData());
-            System.out.println("->Packet"+packet.getData() + ": "+name+" departure: "+ packet.getDepartureRouterTime() + "; "+packet.getDestination().getName()+" arrival: "
+            System.out.println(packet.getData() + ": "+name+" departure: "+ packet.getDepartureRouterTime() + "; "+packet.getDestination().getName()+" arrival: "
                             + packet.getReceiveHostTime());
 
         }
