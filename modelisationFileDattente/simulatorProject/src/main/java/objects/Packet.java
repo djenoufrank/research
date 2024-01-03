@@ -8,7 +8,6 @@ public class Packet {
     private int position;
     private long departureHostTime;
     private long receiveHostTime;
-    private long totalTransmissionDelay;
     private Link link1;
     private Link link2;
     private long departureRouterTime;
@@ -20,7 +19,6 @@ public class Packet {
         this.position=-1;
         this.departureHostTime=0;
         this.receiveHostTime=0;
-        //totalTransmissionDelay=0;
         this.link1=link1;
         this.link2=link2;
         departureRouterTime=0;
@@ -59,9 +57,6 @@ public class Packet {
     public long getReceiveHostTime() {
         return receiveHostTime;
     }
-    public long getTransmissionDelay() {
-        return totalTransmissionDelay;
-    }
 
     public void setDepartureRouterTime(long departureRouterTime) {
         this.departureRouterTime = departureRouterTime;
@@ -78,11 +73,6 @@ public class Packet {
     public void setReceiveHostTime(long receiveHostTime) {
         this.receiveHostTime = receiveHostTime;
     }
-
-    public void setTotalTransmissionDelay(long totalTransmissionDelay) {
-      //  this.totalTransmissionDelay = totalTransmissionDelay;
-    }
-
     public Link getLink1() {
         return link1;
     }
