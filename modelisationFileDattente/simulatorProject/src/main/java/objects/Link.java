@@ -3,19 +3,19 @@ package objects;
 public class Link {
     private double distance;
     private double propagationSpeed;//vitesse de propagation
-    private double transmissionRate;//débit de transmission
+    private double transmissionSpeed;//débit de transmission
 
-    public Link(double distance, double propagationSpeed, double transmissionRate) {
+    public Link(double distance, double propagationSpeed, double transmissionSpeed) {
         this.distance = distance;
         this.propagationSpeed = propagationSpeed;
-        this.transmissionRate = transmissionRate;
+        this.transmissionSpeed = transmissionSpeed;
     }
 
-    public double calculatePropagationDelay() {
+    public double calculatePropagationTime() {
         return distance / propagationSpeed;
     }
 
-    public double calculateTransmissionDelay(int dataSize) {
-        return dataSize / transmissionRate;
+    public double calculateTransmissionTime(int dataSize) {
+        return dataSize / transmissionSpeed;
     }
 }

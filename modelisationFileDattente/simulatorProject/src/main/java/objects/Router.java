@@ -50,18 +50,22 @@ public class Router {
         while (!packetQueue.isEmpty()) {
 
             Packet packet = packetQueue.poll();
-            packet.setDepartureRouterTime((long) (System.currentTimeMillis()+packet.getLink2().calculatePropagationDelay()+packet.getLink2().calculateTransmissionDelay(packet.getData())));
-            // Simuler le délai de transmission
-//            try {
-//                Thread.sleep(500);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
+            try {
+                Thread.sleep((long)(packet.getLink2().calculateTransmissionTime(packet.getData()))+1); // délai de transmission
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            packet.setDepartureRouterTime(System.currentTimeMillis());
+            try {
+                Thread.sleep((long)(packet.getLink2().calculatePropagationTime()+packet.getLink2().calculateTransmissionTime(packet.getData())+1));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             packet.getDestination().receivePacket(packet);
             //System.out.println("Router processing packet: " + packet.getData());
             System.out.println("->Packet"+packet.getData() + ": "+name+" departure: "+ packet.getDepartureRouterTime() + "; "+packet.getDestination().getName()+" arrival: "
                             + packet.getReceiveHostTime());
+
         }
-        //else System.out.println("The packet Queue is empty");
     }
 }

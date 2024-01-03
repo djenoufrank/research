@@ -10,7 +10,13 @@ public class Host {
     }
     public void sendPacket(Packet packet, Router router) {
         // Utilisez la connexion TCP ici
-        packet.setDepartureHostTime((long) (System.currentTimeMillis()+packet.getLink1().calculatePropagationDelay()+packet.getLink1().calculateTransmissionDelay(packet.getData())));
+        packet.setDepartureHostTime((long) (System.currentTimeMillis()));
+        // Simuler le délai de transmission
+        try {
+            Thread.sleep((long)(packet.getLink1().calculatePropagationTime()+packet.getLink1().calculateTransmissionTime(packet.getData())+1));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         router.receivePacket(packet);
     }
 
