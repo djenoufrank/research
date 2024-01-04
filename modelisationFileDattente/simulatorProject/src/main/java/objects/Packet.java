@@ -12,48 +12,60 @@ public class Packet {
     private final Link link2;
     private long departureRouterTime;
     private long arrivalRouterTime;
-    public Packet(int data,Host source, Host destination,Link link1,Link link2) {
+
+    public Packet(int data, Host source, Host destination, Link link1, Link link2) {
         this.data = data;
         this.source = source;
         this.destination = destination;
-        this.position=-1;
-        this.departureHostTime=0;
-        this.receiveHostTime=0;
-        this.link1=link1;
-        this.link2=link2;
-        departureRouterTime=0;
-        arrivalRouterTime=0;
+        this.position = -1;
+        this.departureHostTime = 0;
+        this.receiveHostTime = 0;
+        this.link1 = link1;
+        this.link2 = link2;
+        departureRouterTime = 0;
+        arrivalRouterTime = 0;
     }
+
     public int getData() {
         return data;
     }
+
     public Host getSource() {
         return source;
     }
+
     public Host getDestination() {
         return destination;
     }
+
     public void setDropped(boolean dropped) {
         this.dropped = dropped;
     }
+
     public boolean isDropped() {
         return dropped;
     }
+
     public int getPosition() {
         return position;
     }
+
     public void setPosition(int position) {
         this.position = position;
     }
+
     public long getDepartureRouterTime() {
         return departureRouterTime;
     }
+
     public long getArrivalRouterTime() {
         return arrivalRouterTime;
     }
+
     public long getDepartureHostTime() {
         return departureHostTime;
     }
+
     public long getReceiveHostTime() {
         return receiveHostTime;
     }
@@ -73,6 +85,7 @@ public class Packet {
     public void setReceiveHostTime(long receiveHostTime) {
         this.receiveHostTime = receiveHostTime;
     }
+
     public Link getLink1() {
         return link1;
     }
