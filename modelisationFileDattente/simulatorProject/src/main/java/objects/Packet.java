@@ -8,8 +8,8 @@ public class Packet {
     private int position;
     private long departureHostTime;
     private long receiveHostTime;
-    private Link link1;
-    private Link link2;
+    private final Link link1;
+    private final Link link2;
     private long departureRouterTime;
     private long arrivalRouterTime;
     public Packet(int data,Host source, Host destination,Link link1,Link link2) {

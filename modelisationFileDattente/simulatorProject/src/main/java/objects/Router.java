@@ -46,25 +46,17 @@ public class Router {
         while (!packetQueue.isEmpty()) {
             Packet packet = packetQueue.poll();
             packet.setDepartureRouterTime(System.currentTimeMillis());
-
-
-            if (choice==1){
-                packet.getDestination().receivePacket(packet);
-                try {
-                    Thread.sleep((long)((packet.getLink2().calculatePropagationTime()+packet.getLink2().calculateTransmissionTime(packet.getData()))*1000));
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            } if (choice==3) {
+            if (choice==3 || choice==4) {
                 if (packetQueue.size() < queueCapacity) {
-                    packet.getDestination().receivePacket(packet);
                     try {
                         Thread.sleep((long)((packet.getLink2().calculatePropagationTime()+packet.getLink2().calculateTransmissionTime(packet.getData()))*1000));
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+                    packet.getDestination().receivePacket(packet);
                 }
-            }
+            }else packet.getDestination().receivePacket(packet);
+
             System.out.println(packet.getData() + ": "+name+" departure: "+ packet.getDepartureRouterTime() + "; "+packet.getDestination().getName()+" arrival: "
                     + packet.getReceiveHostTime());
 
