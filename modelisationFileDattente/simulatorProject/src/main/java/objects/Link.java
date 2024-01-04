@@ -11,6 +11,10 @@ public class Link {
         this.transmissionSpeed = transmissionSpeed;
     }
 
+    public double getTransmissionSpeed() {
+        return transmissionSpeed;
+    }
+
     public double calculatePropagationTime() {
         return distance / propagationSpeed;
     }

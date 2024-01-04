@@ -52,15 +52,14 @@ public class Router {
             packet.setDepartureRouterTime(System.currentTimeMillis());
             if (choice == 3 || choice == 4) {
                 if (packetQueue.size() < queueCapacity) {
-                    try {
-                        Thread.sleep((long) ((packet.getLink2().calculatePropagationTime() + packet.getLink2().calculateTransmissionTime(packet.getData())) * 1000000));
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
                     packet.getDestination().receivePacket(packet);
                 }
             } else packet.getDestination().receivePacket(packet);
-
+            try {
+                Thread.sleep((long) ((packet.getLink2().calculatePropagationTime() + packet.getLink2().calculateTransmissionTime(packet.getData())) * 1000000));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             System.out.println(packet.getData() + ": " + name + " departure: " + packet.getDepartureRouterTime() + "; " + packet.getDestination().getName() + " arrival: "
                     + packet.getReceiveHostTime());
 

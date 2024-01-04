@@ -3,6 +3,7 @@ import objects.Link;
 import objects.Packet;
 import objects.Router;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -28,6 +29,7 @@ public class Main {
                 rafalesDePaquets(hostA, hostB, router);
                 break;
             case 5:
+                random(hostA, hostB, router);
                 break;
             default:
                 System.out.println("erreur de saisie. recompilez svp");
@@ -78,7 +80,11 @@ public class Main {
             System.out.println(packet.getData() + ": " + packet.getSource().getName() + " departure:" + packet.getDepartureHostTime() + "; router arrival: "
                     + packet.getArrivalRouterTime() + " at posi: " + packet.getPosition() + "; is dropped : " + packet.isDropped()
             );
-
+            try {
+                Thread.sleep((long) ((packet.getLink1().calculateTransmissionTime(packet.getData())) * 1000000));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         System.out.println("===========================");
         System.out.println("Du routeur vers l'hote B");
@@ -150,5 +156,36 @@ public class Main {
                 e.printStackTrace();
             }
         }
+    }
+    private static void random(Host hostA, Host hostB, Router router) {
+        Link link2;
+        Link link1;
+        link1 = new Link(1000, 199861330, 1000000);
+        link2 = new Link(1000, 199861330, 2000);
+        System.out.println("De l'hote A au Routeur");
+        System.out.println("===========================");
+        // Utilisation d'une distribution exponentielle pour générer des intervalles aléatoires entre les paquets
+        Random random = new Random();
+        for (int i = 1; i <= 10; i++) {
+            Packet packet = new Packet(i, hostA, hostB, link1, link2);
+            hostA.sendPacket(packet, router);
+            // Générer un intervalle aléatoire à partir d'une distribution exponentielle
+            double randomInterval = -Math.log(1.0 - random.nextDouble()) * (1.0 / packet.getLink2().getTransmissionSpeed());
+            try {
+                Thread.sleep((long) ((randomInterval + packet.getLink1().calculatePropagationTime() + packet.getLink1().calculateTransmissionTime(packet.getData())) * 1000000)); // influence total dù au lien L1 entre l'hoteA et le routeur pour le packet i en millisec
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            // Affichage des résultats
+            System.out.println(packet.getData() + ": " + packet.getSource().getName() + " departure:" + packet.getDepartureHostTime() + "; router arrival: "
+                    + packet.getArrivalRouterTime() + " at posi: " + packet.getPosition() + "; is dropped : " + packet.isDropped()
+            );
+
+        }
+
+        System.out.println("===========================");
+        System.out.println("Du routeur vers l'hote B");
+        System.out.println("===========================");
+        router.processQueue(5);  //send to host B
     }
 }
