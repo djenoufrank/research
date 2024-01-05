@@ -1,6 +1,8 @@
 package objects;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class Router {
@@ -34,19 +36,19 @@ public class Router {
 
     public void receivePacket(Packet packet) {
         if (packetQueue.size() < queueCapacity) {
-            packet.setArrivalRouterTime(System.currentTimeMillis());
+            packet.setArrivalRouterTime(System.currentTimeMillis()+(long) ((packet.getLink1().calculatePropagationTime() + packet.getLink1().calculateTransmissionTime(packet.getData())) * 1000000));
             packetQueue.add(packet);
             packet.setPosition(packetQueue.size());
         } else {
             // Tail drop:
-            System.out.println("File d'attente du routeur pleine. Paquet jeté.");
             packet.setDropped(true);
             this.ejectedPacket += 1;
         }
     }
 
     // Simuler le traitement des paquets dans le routeur
-    public void processQueue(int choice) {
+    public List<Packet> processQueue(int choice) {
+        List<Packet> myList=new ArrayList<>();
         while (!packetQueue.isEmpty()) {
             Packet packet = packetQueue.poll();
             packet.setDepartureRouterTime(System.currentTimeMillis());
@@ -60,10 +62,13 @@ public class Router {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println(packet.getData() + ": " + name + " departure: " + packet.getDepartureRouterTime() + "; " + packet.getDestination().getName() + " arrival: "
-                    + packet.getReceiveHostTime());
-
+            myList.add(packet);
         }
+return myList;
+    }
 
+    @Override
+    public String toString() {
+        return  name;
     }
 }

@@ -93,5 +93,14 @@ public class Packet {
     public Link getLink2() {
         return link2;
     }
+
+//    @Override
+//    public String toString() {
+//        return "data" +
+//                ", source=" + source +
+//                ", destination=" + destination +
+//                ", dropped=" + dropped +
+//                ", position=" + position;
+//    }
 }
 

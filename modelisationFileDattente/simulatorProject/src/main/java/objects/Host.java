@@ -17,6 +17,11 @@ public class Host {
     }
 
     public void receivePacket(Packet packet) {
-        packet.setReceiveHostTime(System.currentTimeMillis());
+        packet.setReceiveHostTime(System.currentTimeMillis()+(long) ((packet.getLink2().calculatePropagationTime() + packet.getLink2().calculateTransmissionTime(packet.getData())) * 1000000));
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
