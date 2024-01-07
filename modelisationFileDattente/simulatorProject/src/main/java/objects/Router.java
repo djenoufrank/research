@@ -36,7 +36,14 @@ public class Router {
 
     public void receivePacket(Packet packet) {
         if (packetQueue.size() < queueCapacity) {
-            packet.setArrivalRouterTime(System.currentTimeMillis()+(long) ((packet.getLink1().calculatePropagationTime() + packet.getLink1().calculateTransmissionTime(packet.getData())) * 1000000));
+            try {
+                Thread.sleep((long) (     (long) ((packet.getLink1().calculatePropagationTime()
+                            + packet.getLink1().calculateTransmissionTime(packet.getData())) * 1000000))); 
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+       
+            packet.setArrivalRouterTime(System.currentTimeMillis());
             packetQueue.add(packet);
             packet.setPosition(packetQueue.size());
         } else {
@@ -46,29 +53,25 @@ public class Router {
         }
     }
 
-    // Simuler le traitement des paquets dans le routeur
+    //  traitement des paquets dans le routeur pour aller a l'hote B
     public List<Packet> processQueue(int choice) {
-        List<Packet> myList=new ArrayList<>();
+        List<Packet> myList = new ArrayList<>();
         while (!packetQueue.isEmpty()) {
             Packet packet = packetQueue.poll();
-            packet.setDepartureRouterTime(System.currentTimeMillis());
+            packet.setDepartureRouterTime(System.currentTimeMillis()+(long) ((packet.getLink2().calculateTransmissionTime(packet.getData())) * 1000000));
             if (choice == 3 || choice == 4) {
                 if (packetQueue.size() < queueCapacity) {
                     packet.getDestination().receivePacket(packet);
                 }
-            } else packet.getDestination().receivePacket(packet);
-            try {
-                Thread.sleep((long) ((packet.getLink2().calculatePropagationTime() + packet.getLink2().calculateTransmissionTime(packet.getData())) * 1000000));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            } else
+                packet.getDestination().receivePacket(packet);
             myList.add(packet);
         }
-return myList;
+        return myList;
     }
 
     @Override
     public String toString() {
-        return  name;
+        return name;
     }
 }

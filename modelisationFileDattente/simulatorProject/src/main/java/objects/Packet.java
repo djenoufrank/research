@@ -22,8 +22,8 @@ public class Packet {
         this.receiveHostTime = 0;
         this.link1 = link1;
         this.link2 = link2;
-        departureRouterTime = 0;
-        arrivalRouterTime = 0;
+        this.departureRouterTime = 0;
+        this.arrivalRouterTime = 0;
     }
 
     public int getData() {
@@ -93,14 +93,5 @@ public class Packet {
     public Link getLink2() {
         return link2;
     }
-
-//    @Override
-//    public String toString() {
-//        return "data" +
-//                ", source=" + source +
-//                ", destination=" + destination +
-//                ", dropped=" + dropped +
-//                ", position=" + position;
-//    }
 }
 

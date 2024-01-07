@@ -11,9 +11,8 @@ public class Main {
         Host hostB = new Host("Host B");
         Router router = new Router("Router", 10);
         int choice = 0;
-
         int lancer=1;
-      while(lancer==1){
+        while(lancer==1){
 
         
         System.out.println("\n\n                Modelisation file d'attente");
@@ -27,7 +26,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         choice = sc.nextInt();
         while(!(choice >= 1 && choice <= 5)) {
-                System.out.println("erreur de saisie. refaites un choix svp");
+                System.out.println("erreur de saisie. refaites un choix svp entre 1 et 5");
              choice = sc.nextInt();                
         }
         switch (choice) {
@@ -50,12 +49,12 @@ public class Main {
         System.out.println("\n      voulez vous continer? Oui=1, non=autre chiffre");
         try {
              lancer = sc.nextInt();
+             if(lancer!=1)  System.out.println("Au revoir");
         } catch (Exception e) {
+            lancer = 0;
             System.out.println("Au revoir");
         }
-       
         }
-
     }
 
     private static void illustrationGoulotEtranglement(Host hostA, Host hostB, Router router) {
@@ -70,7 +69,7 @@ public class Main {
             if (i > router.getQueueCapacity()) myList.add(packet);
             hostA.sendPacket(packet, router);
         }
-        myList.addAll(router.processQueue(1));  //send to host B
+        myList.addAll(router.processQueue(1));
         Collections.sort(myList, Comparator.comparingInt(Packet::getData));
         for (int i = 0; i < myList.size(); i++) {
             if (!myList.get(i).isDropped()) {
@@ -84,18 +83,17 @@ public class Main {
     private static void saturationL2AvecGoulot(Host hostA, Host hostB, Router router) {
         Link link1;
         Link link2;
-        link1 = new Link(1000, 199861330, 500000); // 199861330: 2/3 vit de la lum en m/s
+        link1 = new Link(1000, 199861330, 500000); 
         // distance, vitesse de propagation et débit de transmission
         link2 = new Link(1000, 199861330, 250000);
         List<Packet> myList = new ArrayList<>();
         System.out.println("===========================");
         for (int i = 1; i <= 15; i++) {
             Packet packet = new Packet(i, hostA, hostB, link1, link2);
-            if (i > router.getQueueCapacity()) myList.add(packet);// uniqmt sils ne st pas ds ma liste
+            if (i > router.getQueueCapacity()) myList.add(packet);
             hostA.sendPacket(packet, router);
         }
-
-        myList.addAll(router.processQueue(2));  //send to host B
+        myList.addAll(router.processQueue(2));
         Collections.sort(myList, Comparator.comparingInt(Packet::getData));
         for (int i = 0; i < myList.size(); i++) {
             if (!myList.get(i).isDropped()) {
@@ -119,12 +117,12 @@ public class Main {
             if (i > router.getQueueCapacity()) myList.add(packet);
             hostA.sendPacket(packet, router);
             try {
-                Thread.sleep((long) ((packet.getLink1().calculatePropagationTime() + packet.getLink1().calculateTransmissionTime(packet.getData())) * 1000000)); // influence total dù au lien L1 entre l'hoteA et le routeur pour le packet i en millisec
+                Thread.sleep((long) ((packet.getLink1().calculatePropagationTime() + packet.getLink1().calculateTransmissionTime(packet.getData())) * 1000000)); 
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
          }
-        myList.addAll(router.processQueue(3));  //send to host B
+        myList.addAll(router.processQueue(3));  
         Collections.sort(myList, Comparator.comparingInt(Packet::getData));
         for (int i = 0; i < myList.size(); i++) {
             if (!myList.get(i).isDropped()) {
@@ -148,19 +146,16 @@ public class Main {
                 Packet packet = new Packet(i, hostA, hostB, link1, link2);
                 hostA.sendPacket(packet, router);
                 try {
-                    Thread.sleep((long) ((packet.getLink1().calculatePropagationTime() + packet.getLink1().calculateTransmissionTime(packet.getData())) * 1000000)); // influence total dù au lien L1 entre l'hoteA et le routeur pour le packet i en millisec
+                    Thread.sleep((long) ((packet.getLink1().calculatePropagationTime() + packet.getLink1().calculateTransmissionTime(packet.getData())) * 1000000));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                // Affichage des résultats
                 System.out.println(packet.getData() + ": " + packet.getSource().getName() + " departure:" + packet.getDepartureHostTime() + "; router arrival: "
                         + packet.getArrivalRouterTime() + " at posi: " + packet.getPosition() + "; is dropped : " + packet.isDropped()
                 );
 
             }
-    
-            System.out.println("===========================");
-            router.processQueue(4);  //send to host B
+            router.processQueue(4);  
             // Prochaine rafale
             try {
                 Thread.sleep(500);
@@ -173,11 +168,10 @@ public class Main {
     private static void random(Host hostA, Host hostB, Router router) {
         Link link2;
         Link link1;
-        link1 = new Link(1000, 199861330, 1000000);
+        link1 = new Link(1000, 199861330, 100000);
         link2 = new Link(1000, 199861330, 2000);
         List<Packet> myList = new ArrayList<>();
         System.out.println("===========================");
-        // Utilisation d'une distribution exponentielle pour générer des intervalles aléatoires entre les paquets
         Random random = new Random();
         for (int i = 1; i <= 10; i++) {
             Packet packet = new Packet(i, hostA, hostB, link1, link2);
@@ -186,14 +180,12 @@ public class Main {
             // Générer un intervalle aléatoire à partir d'une distribution exponentielle
             double randomInterval = -Math.log(1.0 - random.nextDouble()) * (1.0 / packet.getLink2().getTransmissionSpeed());
             try {
-                Thread.sleep((long) ((randomInterval + packet.getLink1().calculatePropagationTime() + packet.getLink1().calculateTransmissionTime(packet.getData())) * 10000)); // influence total dù au lien L1 entre l'hoteA et le routeur pour le packet i en millisec
+                Thread.sleep((long) ((randomInterval) * 10000)); 
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
-
         }
-        myList.addAll(router.processQueue(5));  //send to host B
+        myList.addAll(router.processQueue(5));
         Collections.sort(myList, Comparator.comparingInt(Packet::getData));
         for (int i = 0; i < myList.size(); i++) {
             if (!myList.get(i).isDropped()) {
